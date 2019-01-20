@@ -21,16 +21,16 @@ End entity;
 
 Architecture Behavioral of controlador_pisos is 
 
-Signal piso_actual_internal: unsigned (N-1 downto 0);
+Signal piso_actual_internal: unsigned (N-1 downto 0); -- Podria inicializar la señal interna aqui 
 
 Begin
 	
 	Process (clk,reset) --clk de 1Hz
 		Begin 
-			piso_actual_internal <= to_unsigned (piso_actual);
+			--piso_actual_internal <= to_unsigned (piso_actual); No tiene sentido 
 
 			if (reset = '1') then 
-				piso_actual_internal <= "001";
+				piso_actual_internal <= "001"; -- Inicializo aqui el piso
 
 			elsif (rising_edge(clk)) then -- clk de 1Hz, sube un piso por segundo
 
