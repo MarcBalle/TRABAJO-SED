@@ -21,7 +21,9 @@ End entity;
 Architecture dataflow of input_decoder is 
 
 Begin 
-	
+	input:
+	Block (ena = '1')
+	Begin
 	With boton_placa select 
 
 					boton_bin <= "001" when "0001",
@@ -30,5 +32,6 @@ Begin
 								 "100" when "1000", 
 								 "000" when others;
 
+	End block input;
 End architecture; 
 								 
