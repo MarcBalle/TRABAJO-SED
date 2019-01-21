@@ -27,7 +27,7 @@ Begin
 			if (reset ='1') then 
 				puerta_display <= "0001"; --Puerta cerrada, estado de inicio
 				sensor_puerta <= '1'; 
-			elsif (sensor_presencia ='1') then -- Problema: si el las puertas estan abriendose y pulsamos sensor presencia se iniciaria este bucle. 
+			elsif (sensor_presencia ='1' and motor_puerta = "10") then -- Problema: si el las puertas estan abriendose y pulsamos sensor presencia se iniciaria este bucle. 
 				if (cont /= 0) then 
 					cont := cont -1; 
 					if (cont = 2) then -- Valoro los diferentes valores de la cuenta y saco el estado de la puerta que corresponda
