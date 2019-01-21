@@ -32,6 +32,6 @@ Begin
 								 "100" when "1000", 
 								 "000" when others;
 
-	End block input;
+	End Block input;
 End architecture; 
 								 
