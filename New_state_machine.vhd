@@ -16,7 +16,7 @@ Entity state_machine is
 
 	Generic (N: natural:= 4);
 	Port (
-		sensor_puerta, stop_emergencia, reset, clk, sensor_presencia : IN std_logic;
+		sensor_puerta, stop_emergencia, reset, clk, sensor_presencia, ena : IN std_logic;
 		-- sensor_puerta : 1 cerrada/ 0 abierta
 		-- sensor_presencia : 1 presencia/ 0 nadie 
 		-- Discutir la frecuencia del clk
@@ -108,6 +108,7 @@ Begin
     			when incio => -- Motor del ascensor y de las puertas parados
     				motor_puerta <= "11"; --Motor puerta parado con puertas cerradas
     				motor_ascensor <= "11";
+				ena <= '1';
 
     			when abrir => -- Puertas abriéndose y ascensor parado
     				motor_puerta <= "01";
@@ -116,6 +117,7 @@ Begin
     			when reposo => -- puertas abiertas y ascensor parado 
     				motor_puerta <= "00"; --Motor puerta parado con puertas abiertas
     				motor_ascensor<= "11";
+				ena <= '1';
 
     			when cerrar => -- Puertas cerrándose y motor parado 
     				motor_puerta <= "10";
